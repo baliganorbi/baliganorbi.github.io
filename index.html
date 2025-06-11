@@ -43,6 +43,62 @@
             width: 80vw;
             max-width: 500px;
         }
+        
+        /* Print-specific styles */
+        @media print {
+            body {
+                background-color: #fff;
+                color: #000;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            header, footer, #mobile-menu-button {
+                display: none !important;
+            }
+            main {
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
+            section {
+                padding-top: 1rem !important;
+                padding-bottom: 1rem !important;
+                box-shadow: none !important;
+                border: none !important;
+            }
+            /* Force each section to a new page */
+            #experience, #skills, #certifications, #education {
+                break-before: page;
+            }
+            /* Ensure timeline details are always visible */
+            .timeline-item ul {
+                display: block !important;
+            }
+            /* Hide the interactive toggle text */
+            .timeline-item .cursor-pointer span {
+                display: none !important;
+            }
+            /* Adjust chart container for A4 paper */
+            .chart-container {
+                height: 350px !important;
+                width: 100% !important;
+                max-width: 600px !important;
+                margin-top: 2rem;
+            }
+             /* Ensure backgrounds and colors print correctly */
+            .bg-white, .bg-blue-50, .bg-gray-50, .bg-gray-800 {
+                background-color: transparent !important;
+            }
+            h1, h2, h3, h4, p, li, span, a {
+                color: #000 !important;
+            }
+            .text-blue-600 {
+                color: #2563eb !important; /* Keep brand color for headings */
+            }
+            /* Remove shadows */
+            .shadow-lg, .shadow-md, .shadow-sm {
+                box-shadow: none !important;
+            }
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -85,13 +141,15 @@
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
         <!-- Hero/Summary Section -->
-        <section id="hero" class="text-center py-16">
-            <img class="w-40 h-40 rounded-full mx-auto mb-8 shadow-lg border-4 border-blue-500/50 object-cover" src="profile2.JPG" alt="Norbert Baliga">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">Norbert Baliga</h1>
-            <p class="mt-4 text-xl text-blue-600 font-semibold">Staff Security Engineer</p>
+        <section id="hero" class="py-16">
+            <div class="text-center">
+                <img class="w-40 h-40 rounded-full mx-auto mb-8 shadow-lg border-4 border-blue-500/50 object-cover" src="profile2.JPG" alt="Norbert Baliga">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">Norbert Baliga</h1>
+                <p class="mt-4 text-xl text-blue-600 font-semibold">Staff Security Engineer</p>
+            </div>
             <div class="mt-8 max-w-3xl mx-auto">
-                 <h2 class="text-2xl font-bold text-gray-800 mb-4">Professional Summary</h2>
-                 <p class="text-lg text-gray-600 leading-relaxed">
+                 <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Professional Summary</h2>
+                 <p class="text-lg text-gray-600 leading-relaxed text-left">
                     A results-driven Staff Security Engineer with a comprehensive background in information technology, specializing in application security, cloud security, and penetration testing. I possess a demonstrated history of maturing application security programs by integrating robust security controls throughout the software development lifecycle (SDLC). As a subject matter expert, I excel at automating security processes, conducting in-depth security assessments, and translating complex technical risks into actionable business insights for stakeholders at all levels. My extensive certifications underscore my commitment to building and maintaining a secure-by-design culture.
                  </p>
             </div>
@@ -120,7 +178,7 @@
         </section>
 
         <!-- Core Competencies & Skills Section -->
-        <section id="skills" class="py-16 bg-white rounded-xl shadow-lg">
+        <section id="skills" class="py-16 bg-white rounded-xl">
             <h2 class="text-3xl font-bold text-center text-gray-900 mb-4">Core Competencies</h2>
             <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">A visual representation of key skill areas, followed by a detailed breakdown of technical skills.</p>
             <div class="chart-container">
